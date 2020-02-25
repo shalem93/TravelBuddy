@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TravelBuddy</title>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+<h1>Register</h1>
+    <form action="/registerUser" method="post">
+        {% csrf_token %}
+        <p>Name: <input type="text" name="form_name" id=""></p>
+        <p>Username: <input type="text" name="form_username" id=""></p>
+        <p>Password: <input type="text" name="form_password" id=""></p>
+        <p>Confirm PW: <input type="text" name="form_confirm_pw" id=""></p>
+        <p><input type="submit" value="Register"></p>
+    </form>
+<h1>Log In</h1>
+    <form action="/loginUser" method="post">
+        {% csrf_token %}
+        <p>Username: <input type="text" name="form_username" id=""></p>
+        <p>Password: <input type="text" name="form_password" id=""></p>
+        <p><input type="submit" value="Log In"></p>
+    </form>
+    
+</body>
+</html>
